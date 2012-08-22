@@ -1,0 +1,107 @@
+@import "normalize";
+@import "susy";
+@import "compass/utilities/general/clearfix";
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
+$total-columns  : 7;
+$column-width   : 4.25em;
+$gutter-width   : 1em;
+
+$highlight-color: #54a0cd;
+$emphasis-color: #222a4f;
+$text-color: #878787;
+
+$break-tablet: 8;
+$break-desktop: 12;
+
+.content { @include container($total-columns, $break-tablet, $break-desktop); }
+
+.vcard {
+	ul li { display: inline-block; margin-left: .25em; }
+	.tel:before { content: 'T: ' }
+	.email:before { content: 'E: ' }
+}
+
+body.resume {
+
+    font-family: 'Lato', sans-serif;
+
+    background-image: url(snow.png);
+    background-attachment:fixed;
+
+    p { color: $text-color; line-height: 1.5em; margin: .5em 0; }
+    ul { list-style: none; margin: 0; padding: 0; }
+
+    header.vcard {
+        a { text-decoration: none; color: $emphasis-color; }
+        h1 { color: $highlight-color; margin: 1em 0 .25em; font-size: 1.75em; font-weight: 700; }
+        ul { font-size: .75em; }
+        margin: 2em 0;
+    }
+    section {
+        @include clearfix;
+        margin: 2em 0;
+    }
+    section:first-of-type { margin-top: 3em; }
+    section > header {
+        color: $highlight-color;
+        border-bottom: 1px solid $highlight-color;
+        font-weight: 700;
+    }
+	section ul {
+		header {
+            color: $emphasis-color;
+			small { display: block; }
+            a { text-decoration: none; }
+		}
+        li {
+            margin: 1em 0 2em;
+        }
+        a { color: $emphasis-color; }
+	}
+    section.skills ul li {
+        margin: 1em 0em;
+    }
+	@include at-breakpoint($break-tablet) {
+        section > header {
+            @include span-columns(2,$break-tablet);
+        }
+        section > div, section ul {
+            @include span-columns(6 omega, $break-tablet);
+        }
+
+        header.vcard {
+            text-align: right;
+            h1 { margin: 1em 0 .5em; font-size: 3em; }
+            ul { font-size: 1em; }
+        }
+        section:first-of-type { margin-top: 4em; }
+		section > header {
+			text-align: right;
+            border-bottom: none;
+		}
+        section > div > p, section ul li:first-of-type, section.skills ul p:first-of-type {
+            margin-top: 0;
+        }
+		section ul {
+			header {
+				@include clearfix;
+				.name {
+					float: left;
+				}
+				.timeframe {
+					float: right;
+				}
+			}
+		}
+	}
+
+    @include at-breakpoint($break-desktop) {
+        section > header {
+            @include span-columns(2,$break-desktop);
+        }
+        section > div, section ul {
+            @include span-columns(10 omega, $break-desktop);
+        }
+    }
+}

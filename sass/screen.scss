@@ -1,0 +1,22 @@
+@import "normalize";
+@import "susy";
+@import "compass/utilities/general/clearfix";
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
+$highlight-color: #54a0cd;
+$text-color: #878787;
+$emphasis-color: #222a4f;
+
+.content { @include container(); }
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: $text-color;
+
+    background-image: url(snow.png);
+    background-attachment:fixed;
+
+    h1 { color: $highlight-color; }
+
+    a { color: $emphasis-color; }
+}
