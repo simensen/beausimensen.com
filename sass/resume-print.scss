@@ -14,7 +14,7 @@ $text-color: #878787;
 $break-tablet: 8;
 $break-desktop: 12;
 
-.content { @include container($total-columns, $break-tablet, $break-desktop); }
+.content { @include container($break-tablet); }
 
 .vcard {
 	ul li { display: inline-block; margin-left: .25em; }
@@ -25,9 +25,7 @@ $break-desktop: 12;
 body.resume {
 
     font-family: 'Lato', sans-serif;
-
-    background-image: url(snow.png);
-    background-attachment:fixed;
+    font-size: 7pt;
 
     p { color: $text-color; line-height: 1.5em; margin: .5em 0; }
     ul { list-style: none; margin: 0; padding: 0; }
@@ -63,47 +61,40 @@ body.resume {
     section.skills ul li {
         margin: 1em 0em;
     }
-	@include at-breakpoint($break-tablet) {
-        section > header {
-            @include span-columns(2,$break-tablet);
-        }
-        section > div, section ul {
-            @include span-columns(6 omega, $break-tablet);
-        }
+    section.projects {
+        page-break-before: always;
+    }
 
-        header.vcard {
-            text-align: right;
-            h1 { margin: 1em 0 .5em; font-size: 3em; }
-            ul { font-size: 1em; }
-        }
-        section:first-of-type { margin-top: 4em; }
-		section > header {
-			text-align: right;
-            border-bottom: none;
-		}
-        section > div > p, section ul li:first-of-type, section.skills ul p:first-of-type {
-            margin-top: 0;
-        }
-		section ul {
-			header {
-				@include clearfix;
-				.name {
-					float: left;
-				}
-				.timeframe {
-					float: right;
-                    font-size: 100%;
-				}
+    section > header {
+        @include span-columns(2,$break-tablet);
+    }
+    section > div, section ul {
+        @include span-columns(6 omega, $break-tablet);
+    }
+
+    header.vcard {
+        text-align: right;
+        h1 { margin: 1em 0 .5em; font-size: 3em; }
+        ul { font-size: 1em; }
+    }
+    section:first-of-type { margin-top: 4em; }
+	section > header {
+		text-align: right;
+        border-bottom: none;
+	}
+    section > div > p, section ul li:first-of-type, section.skills ul p:first-of-type {
+        margin-top: 0;
+    }
+	section ul {
+		header {
+			@include clearfix;
+			.name {
+				float: left;
+			}
+			.timeframe {
+				float: right;
+                font-size: 100%;
 			}
 		}
 	}
-
-    @include at-breakpoint($break-desktop) {
-        section > header {
-            @include span-columns(2,$break-desktop);
-        }
-        section > div, section ul {
-            @include span-columns(10 omega, $break-desktop);
-        }
-    }
 }
