@@ -4,7 +4,7 @@ var compass = require('compass');
 gulp.task('compass', function () {
     return gulp.src('./sass/*.scss')
         .pipe(compass({
-            css: 'source/assets/css'
+            css: 'source/assets/css',
             sassDir: 'sass'
         }));
 });
