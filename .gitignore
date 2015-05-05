@@ -4,8 +4,3 @@ app/config/sculpin_*_dev.yml
 app/logs/*
 node_modules
 output_*
-source/assets/css/ie.css
-source/assets/css/print.css
-source/assets/css/resume.css
-source/assets/css/resume-print.css
-source/assets/css/screen.css
