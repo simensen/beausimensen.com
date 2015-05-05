@@ -2,6 +2,7 @@
 app/cache/*
 app/config/sculpin_*_dev.yml
 app/logs/*
+node_modules
 output_*
 source/assets/css/ie.css
 source/assets/css/print.css

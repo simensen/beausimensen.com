@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var compass = require('compass');
+var compass = require('gulp-compass');
 
 gulp.task('compass', function () {
     return gulp.src('./sass/*.scss')
